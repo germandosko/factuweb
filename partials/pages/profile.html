@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="h2"><i class="fa fa-user margin-right-small"></i>Profile</div>
+    <div ng-if="!loaded" class="h3">Loading Profile...</div>
+    <div ng-if="loaded &amp;&amp; user.name" class="profile">
+      <div class="alert alert-success">You are connected with<span class="capitalize"> {{user.network}}</span></div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="panel-title"><span>{{user.name}}</span><i class="fa pull-right margin-right-small text-150 fa-{{user.logo}}-square"></i></div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-8">
+              <ul class="list-unstyled">
+                <li>{{user.email}}</li>
+                <li>Since: {{user.created | date:'MMM dd, yyyy'}}</li>
+              </ul>
+            </div>
+            <div class="col-xs-4 text-right"><img ng-src="{{user.photo}}" alt="User Photo" width="50px" class="img-rounded"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

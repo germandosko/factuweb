@@ -1,0 +1,83 @@
+<div class="index">
+  <div class="form row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <label class="control-label">Dip</label>
+        <input type="number" name="dip" data-ng-model="params.dip" data-ng-trim="true" data-ng-change="checkShowSearchBox()" min="0" max="2" class="form-control"/>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-group">
+        <label class="control-label">Strip</label>
+        <input type="number" name="strip" data-ng-model="params.strip" data-ng-trim="true" data-ng-change="checkShowSearchBox()" min="1" max="5" class="form-control"/>
+      </div>
+    </div>
+    <div data-ng-if="searchBox.show" class="col-xs-12">
+      <div data-ng-if="searchBox.target2Text" class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label">{{searchBox.target1Text}}</label>
+            <input type="text" name="target" data-ng-model="params.target1" data-ng-trim="true" class="form-control"/>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label class="control-label">{{searchBox.target2Text}}</label>
+            <input type="text" name="target" data-ng-model="params.target2" data-ng-trim="true" class="form-control"/>
+          </div>
+        </div>
+      </div>
+      <div data-ng-if="!searchBox.target2Text" class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="control-label">{{searchBox.target1Text}}</label>
+            <input type="text" name="target" data-ng-model="params.target1" data-ng-trim="true" class="form-control"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <button data-ng-click="send('')" class="btn btn-success btn-lg pull-right">Search<i class="fa fa-arrow-circle-right margin-left-small"></i></button>
+    </div>
+  </div>
+  <div data-ng-if="hasResults" style="margin-top:20px;" class="row">
+    <div data-ng-repeat="stack in results" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div style="cursor:pointer;" data-ng-click="show(stack)" class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{stack.header.label}}</h3>
+        </div>
+        <div class="panel-body">
+          <p>Title: "{{stack.header.title}}"</p>
+          <p style="text-align:center"><img data-ng-src="{{stack.header.image.img}}" style="width: 50px; height: 50px;" class="img-thumbnail"/></p>
+          <p>Caption: "{{stack.header.image.text}}"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-ng-if="hasResults" class="row">
+    <div class="col-xs-6">
+      <button data-ng-click="send('/prev')" class="btn btn-info btn-lg"><i class="fa fa-arrow-circle-left"></i> Prev</button>
+    </div>
+    <div class="col-xs-6">
+      <button data-ng-click="send('/next')" class="btn btn-info btn-lg pull-right">Next<i class="fa fa-arrow-circle-right"></i></button>
+    </div>
+  </div>
+  <div data-ng-if="current.articles" class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div data-ng-repeat="article in current.articles" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{article.title}}</h3>
+        </div>
+        <div class="panel-body">
+          <p>Caption: {{article.image.text}}</p>
+          <p style="text-align:center"><img data-ng-src="{{article.image.img}}" style="width: 200px; height: 200px;" class="img-thumbnail"/></p>
+          <div data-ng-repeat="content in article.content" class="article-content">
+            <h6>Author: {{content.author}}</h6>
+            <h6>Summary: {{content.summary}}</h6>
+            <h6>Link:<a data-ng-href="{{content.url}}">{{content.url}}</a></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

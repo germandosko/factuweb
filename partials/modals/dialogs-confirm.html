@@ -1,0 +1,13 @@
+<div class="modal-confirm">
+  <div class="modal-header">
+    <h3 data-ng-if="isError" class="help-block alert alert-danger">{{header}}</h3>
+    <h3 data-ng-if="!isError" class="help-block alert alert-info">{{header}}</h3>
+  </div>
+  <div class="modal-body">{{msg}}</div>
+  <div class="modal-footer">
+    <button type="button" data-ng-click="no()" data-ng-if="isError" class="btn btn-warning">{{"DIALOGS_NO" | translate}}</button>
+    <button type="button" data-ng-click="no()" data-ng-if="!isError" class="btn btn-danger">{{"DIALOGS_NO" | translate}}</button>
+    <button type="button" data-ng-click="yes()" data-ng-if="isError" class="btn btn-danger">{{"DIALOGS_YES" | translate}}</button>
+    <button type="button" data-ng-click="yes()" data-ng-if="!isError" class="btn btn-primary">{{"DIALOGS_YES" | translate}}</button>
+  </div>
+</div>

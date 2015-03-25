@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-7"><a href="/#/"><img data-ng-src="/img/index-bg.png" class="header-logo"/></a></div>
+  <div data-ng-if="!menu.login &amp;&amp; user._id.length" class="col-xs-5">
+    <div class="pull-right settings">
+      <div class="dropdown"><a class="dropdown-toggle"><i class="fa fa-gear text-175"></i></a>
+        <ul class="dropdown-menu">
+          <li><a data-ng-href="/#/profile/{{user._id}}"><i class="fa fa-user text-125 margin-right-small"></i>Profile</a></li>
+          <li class="divider"></li>
+          <li><a data-ng-click="logout()"><i class="fa fa-sign-out text-125 margin-right-small"></i>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pull-right profile-img"><img data-ng-src="{{user.photo}}" width="40" class="profile img-rounded margin-top-small"/></div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="modal-wait">
+  <div class="modal-header">
+    <h3 class="help-block alert alert-info">{{"DIALOGS_PLEASE_WAIT" | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{msg}}</p>
+    <div class="progress progress-striped active">
+      <div data-ng-style="getProgress()" class="progress-bar progress-bar-info"></div>
+      <span class="sr-only">{{progress}} {{"DIALOGS_PERCENT_COMPLETE" | translate}}</span>
+    </div>
+  </div>
+</div>
